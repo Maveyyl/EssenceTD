@@ -1,0 +1,136 @@
+Short context:
+	Tower defense game
+	classic tiled 2D map with aerial view
+	Monsters come from the outside of the map and will follow paths until reaching the base
+	Monsters will inflict damage to the base when reaching it
+	if the base has 0 health end of the game
+	When a monster reach the base he's replaced outside of the map in the state he was before reaching the base
+	Essences can be created and placed into buildings
+	Essences will shoot on monsters
+	Essences can be upgraded, fused, combined, decombined into powerfuler essences
+	To buy/upgrade/fuse/combine essence, buy buildings, ect... it's required to have Energy
+	Energy is gathered by time, by killing monster or by harvesting it with special essence effects
+
+Essence:
+	essence type
+	damage
+	reload_time							
+	range
+	special power
+	kill_count
+	level
+	behavior
+
+Monster:
+	monster type
+	damage									
+	movement speed
+	health point
+	healing speed
+	armor									reduce ALL incomming damage except pure damage by 100/(100+armor), cannot be negative
+	size											
+
+Specials game mechanics:
+	Hit mechanic modification:
+		splash 								hits inflict damage and effects on monsters at max special_power distance around the hit
+		bouncing 							hits bounce on ceil(0.1*special_power) nearby units	
+		flat armor reduction				reduce armor for 0.01*special_power per hit
+		Beam 								reload_time decreased (1+0.01*special_power) times
+
+	Hit effect:		
+		multi hit 							frac(special_power)/trunc(0.01*special_power+1) + 1-(1/ trunc(0.01*special_power+1) ) chance of dealing trunc(0.01*special_power+1) the essence's damage
+		flat DOT							inflicts special_power*damage in 3 second
+		stun								frac(0.01*special_power)/trunc(0.01*special_power+1) + 1-(1/ trunc(0.01*special_power+1) ) chance of stun for trunc(0.01*special_power+1) seconds
+		energy gathering					steals special_power energy per hit
+		vulnerability						Each hit sets a stack of vulnerability, every hit of other towers will break one stack and deal 0.01*special_power more damage
+		slow                                max slow 80%, slowed for (1 - ( 100/(100+special_power) )*0.8, add on hit, duration is 3 second
+
+		growing stats on focus				increases damage for 1+(0.01*special_power) per hit on the same target
+		growing stats on kill				increases damage definitively for 1+(0.001*special_power) per kill
+		scaling DOT							inflicts 0.001*special_power % of the targets life in damage
+		scaling armor reduction				reduces armor by 0.01*special_power % of targets armor, stackable per essence, not per hit, applies before flat armor reduction
+
+
+
+
+
+Essence types:
+	earth									bouncing
+	air										flat armor reduction
+	water									beam
+	fire									splash
+
+	ice 		water + air					stun
+	magma		earth + fire				flat DOT
+	lightning	fire + air					multi hit
+	vapor		fire + water				energy gathering
+	sand		earth + air					
+	mud			earth + water				slow
+
+	darkness	water + fire + earth		scaling DOT
+	light		air + fire + earth			scaling armor reduction
+	life		water + air + earth			growing stats on focus
+	death		water + fire + air			growing stats on kill
+
+Essence fusion:
+	fuse element to create other elements
+	Average of all characteristics
+
+Essence combination:
+	Combine element to add their special effects
+	Average of all characteristics
+	Essences can be uncombined 
+
+Essence targeting behavior:
+	Closest
+	Farthest
+	Most armored
+	Most resilient
+	Least armored
+	Least resilient
+	Most damage
+	Least damage
+	Random until dead
+	Random per hit
+	given target
+
+	
+
+Monster Types:
+	normal		
+	Tank		high health, high armor, slow, low count
+	Boss		High health, high armor, very slow, unique
+	swarm		low health, high count
+	speed 		high speed, low armor
+
+
+
+
+Buildings:
+	Tower
+	traps (lower range, lower damage, increased attack speed, increased special power)
+	base
+	Wall
+
+Terrain:
+	pos
+	terrain type
+
+Terrain type:
+	land
+	path
+	water (unconstructible)
+
+Wave
+	monster prototype
+	monster count
+	can be boosted to increase monster count + health,damage,armor
+
+Map
+	array of terrain type
+	array of wave
+	array of buildings
+
+Base
+	Health point
+	Armor
