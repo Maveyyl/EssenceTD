@@ -173,12 +173,13 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 - Everything is ugly and to be redesigned
 
 ### Code refactor, organization and structure
-- Move wave_factory monster's related code into monster_factory
 - Place the armor damage reduction calculation and monster type's characteristic tweak into global
 
 ### Improvements
+- Balancing!!!
 - Make smaller tiles while not changing building's size and monster size, allowing more detailed map and paths for monsters. WARNING will make pathfinding algorithm heavier.
 - Make monster's move seem more natural (when they turn an edge?)
+- Random module giving more random things, basically used for path choosing and monster type generation.
 
 ## Feature ideas and undecided designs  
 - Buildings could have experience or could be upgraded
