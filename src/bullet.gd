@@ -82,6 +82,10 @@ func trigger(target):
 				on_hit_monsters[y].armor_flat_reduce(armor_flat_reduction)
 
 	target.apply_damage(damage)
+	if( target.dead ):
+		essence.kill_count+=1
 	if( on_hit_monsters != null):
 		for y in range(0, on_hit_monsters.size()):
 			on_hit_monsters[y].apply_damage(damage)
+			if( on_hit_monsters[y].dead ):
+				essence.kill_count+=1

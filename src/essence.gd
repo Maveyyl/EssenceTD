@@ -47,6 +47,7 @@ func custom_init(essence_types):
 	if( essence_types.find( global.objects_data.essences.index_by_name["air"]  ) != -1):
 		reloading_time =  init_reloading_time * global.get_water_reloading_time(special_power)
 		
+	kill_count = 0
 
 func _fixed_process(delta):
 	if( !(dragged || item) ):
