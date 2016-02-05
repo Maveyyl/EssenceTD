@@ -8,6 +8,7 @@ var reloading_time
 var attack_range
 var special_power
 var kill_count
+var consecutive_hit
 var level
 var behavior
 
@@ -54,6 +55,7 @@ func _fixed_process(delta):
 		reloading_counter = reloading_counter + delta
 		
 		if( (!target || target.dead ||  monsters_at_range.find(target) < 0) &&  monsters_at_range.size() > 0 ):
+			consecutive_hit = 0
 			target = get_closest_monster_to_base(monsters_at_range)
 
 		if(target && !target.dead &&  reloading_counter > reloading_time):

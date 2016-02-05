@@ -69,6 +69,7 @@ There is a lot of different combinations.<br>
 - range : the maximal fire range of the essence
 - special power : how powerful will be the essence special effects
 - kill_count : the amount of monsters killed
+- consecutive_hit : the amount of hit on the same target
 - level : the level of the essence
 - behavior : the way the essence will prioritize targets
 
@@ -140,7 +141,6 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 
 ## TODO
 ### Core Features
-- Implement consecutive hits on essences
 - Energy system, with costs on essences and buildings, and rewards on killing monsters
 - Design traps and implement
 - More building designs
