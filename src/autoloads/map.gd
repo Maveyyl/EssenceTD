@@ -149,6 +149,7 @@ func get_monsters_in_circle(center, radius, exclude):
 	for i in range(0, waves.size()):
 		for y in range(0, waves[i].monsters.size()):
 			var monster = waves[i].monsters[y]
+			
 			if( monster.dead || ( exclude && exclude == monster )):
 				continue
 				
@@ -156,10 +157,9 @@ func get_monsters_in_circle(center, radius, exclude):
 			if( center.distance_to( monster.get_pos() ) <= radius ):
 				distances[monster] = distance
 				for z in range(0, monsters.size()+1):
-					if( z == monsters.size()):
+					if( distances[monsters[z]] > distance || z == monsters.size()):
 						monsters.insert(z,monster)
-					elif( distances[monsters[z]] > distance ):
-						monsters.insert(z,monster)
+						break
 				if( monsters.size() == 0 ):
 					monsters.append(monster)
 
