@@ -140,6 +140,7 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 
 ## TODO
 ### Core Features
+- Implement consecutive hits on essences
 - Energy system, with costs on essences and buildings, and rewards on killing monsters
 - Design traps and implement
 - More building designs
@@ -161,6 +162,7 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 - Limit to amount of drawn monsters and projectiles
 
 ### Interfaces, tools and views
+- Building build buttons
 - Energy bar
 - Info pop-up with characteristics and costs when hovering a button or selecting a map entity
 - Wave progression bar or something similar (design to do)
@@ -170,7 +172,7 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 ### Graphics
 - Everything is ugly and to be redesigned
 
-### Code refactor, organization and structure 
+### Code refactor, organization and structure
 - Move wave_factory monster's related code into monster_factory
 - Place the armor damage reduction calculation and monster type's characteristic tweak into global
 
