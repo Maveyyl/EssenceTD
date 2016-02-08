@@ -1,0 +1,252 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://src/map_ui.gd" type="Script" id=1]
+[ext_resource path="res://src/store.gd" type="Script" id=2]
+[ext_resource path="res://resources/images/store.png" type="Texture" id=3]
+[ext_resource path="res://resources/images/fire_essence.png" type="Texture" id=4]
+[ext_resource path="res://resources/images/water_essence.png" type="Texture" id=5]
+[ext_resource path="res://resources/images/earth_essence.png" type="Texture" id=6]
+[ext_resource path="res://resources/images/air_essence.png" type="Texture" id=7]
+[ext_resource path="res://resources/images/empty_essence.png" type="Texture" id=8]
+[ext_resource path="res://src/inventory.gd" type="Script" id=9]
+[ext_resource path="res://resources/images/inventory.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 75, 50 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 75, 100 )
+
+[node name="Node2D MapUI" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script" }
+
+[node name="Node2D GameSpeed" type="Node2D" parent="."]
+
+transform/pos = Vector2( 1050, 0 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Button Pause" type="Button" parent="Node2D GameSpeed"]
+
+margin/left = 1.0
+margin/top = 1.0
+margin/right = 24.0
+margin/bottom = 24.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "||"
+flat = false
+
+[node name="Button Speed1" type="Button" parent="Node2D GameSpeed"]
+
+margin/left = 26.0
+margin/top = 1.0
+margin/right = 52.0
+margin/bottom = 24.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "x1"
+flat = false
+
+[node name="Button Speed2" type="Button" parent="Node2D GameSpeed"]
+
+margin/left = 51.0
+margin/top = 1.0
+margin/right = 77.0
+margin/bottom = 24.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "x2"
+flat = false
+
+[node name="Button Speed3" type="Button" parent="Node2D GameSpeed"]
+
+margin/left = 76.0
+margin/top = 1.0
+margin/right = 102.0
+margin/bottom = 24.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "x4"
+flat = false
+
+[node name="Button Speed8" type="Button" parent="Node2D GameSpeed"]
+
+margin/left = 101.0
+margin/top = 1.0
+margin/right = 127.0
+margin/bottom = 24.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "x8"
+flat = false
+
+[node name="Button Speed16" type="Button" parent="Node2D GameSpeed"]
+
+margin/left = 126.0
+margin/top = 1.0
+margin/right = 159.0
+margin/bottom = 24.0
+rect/scale = Vector2( 0.69, 1 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "x16"
+flat = false
+
+[node name="Node2D WaveInfo" type="Node2D" parent="."]
+
+transform/pos = Vector2( 1050, 25 )
+
+[node name="Button NextWave" type="Button" parent="Node2D WaveInfo"]
+
+margin/left = 1.0
+margin/top = 1.0
+margin/right = 149.0
+margin/bottom = 24.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "Next Wave"
+flat = false
+
+[node name="Label Wave" type="Label" parent="Node2D WaveInfo"]
+
+margin/top = 26.0
+margin/right = 150.0
+margin/bottom = 49.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+text = "Wave 0/0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Node2D Store" type="Node2D" parent="."]
+
+transform/pos = Vector2( 1050, 275 )
+script/script = ExtResource( 2 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite Store" type="Sprite" parent="Node2D Store"]
+
+transform/pos = Vector2( 75, 50 )
+texture = ExtResource( 3 )
+
+[node name="Sprite FireEssence" type="Sprite" parent="Node2D Store"]
+
+transform/pos = Vector2( 25, 25 )
+texture = ExtResource( 4 )
+
+[node name="Sprite WaterEssence" type="Sprite" parent="Node2D Store"]
+
+transform/pos = Vector2( 75, 25 )
+texture = ExtResource( 5 )
+
+[node name="Sprite EarthEssence" type="Sprite" parent="Node2D Store"]
+
+transform/pos = Vector2( 125, 25 )
+texture = ExtResource( 6 )
+
+[node name="Sprite AirEssence" type="Sprite" parent="Node2D Store"]
+
+transform/pos = Vector2( 25, 75 )
+texture = ExtResource( 7 )
+
+[node name="Sprite EmptyEssence" type="Sprite" parent="Node2D Store"]
+
+transform/pos = Vector2( 75, 75 )
+texture = ExtResource( 8 )
+
+[node name="Area2D" type="Area2D" parent="Node2D Store"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, -0, 0, 1, 75, 50 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D Store/Area2D"]
+
+transform/pos = Vector2( 75, 50 )
+shape = SubResource( 1 )
+trigger = true
+_update_shape_index = 0
+
+[node name="Node2D Inventory" type="Node2D" parent="."]
+
+transform/pos = Vector2( 1050, 400 )
+script/script = ExtResource( 9 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="Node2D Inventory"]
+
+transform/pos = Vector2( 75, 100 )
+texture = ExtResource( 10 )
+
+[node name="Area2D" type="Area2D" parent="Node2D Inventory"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, -0, 0, 1, 75, 100 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D Inventory/Area2D"]
+
+transform/pos = Vector2( 75, 100 )
+shape = SubResource( 2 )
+trigger = true
+_update_shape_index = 0
+
+[connection signal="pressed" from="Node2D GameSpeed/Button Pause" to="." method="_on_Button_Pause_pressed"]
+
+[connection signal="pressed" from="Node2D GameSpeed/Button Speed1" to="." method="_on_Button_Speed1_pressed"]
+
+[connection signal="pressed" from="Node2D GameSpeed/Button Speed2" to="." method="_on_Button_Speed2_pressed"]
+
+[connection signal="pressed" from="Node2D GameSpeed/Button Speed3" to="." method="_on_Button_Speed3_pressed"]
+
+[connection signal="pressed" from="Node2D GameSpeed/Button Speed8" to="." method="_on_Button_Speed8_pressed"]
+
+[connection signal="pressed" from="Node2D GameSpeed/Button Speed16" to="." method="_on_Button_Speed16_pressed"]
+
+[connection signal="pressed" from="Node2D WaveInfo/Button NextWave" to="." method="_on_Button_NextWave_pressed"]
+
+[connection signal="input_event" from="Node2D Store/Area2D" to="Node2D Store" method="_on_Area2D_input_event"]
+
+[connection signal="input_event" from="Node2D Inventory/Area2D" to="Node2D Inventory" method="_on_Area2D_input_event"]
+
+

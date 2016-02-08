@@ -15,7 +15,7 @@ var scripts= {
 var objects_data= {
 	"maps":{
 		"scenes": [
-			load("res://resources/scenes/maps/map1.scn")
+			load("res://resources/scenes/maps/map1.tscn")
 		]
 	},
 	"tiles":{
@@ -54,16 +54,16 @@ var objects_data= {
 			"air": 4
 		},
 		"scenes":[
-			load("res://resources/scenes/essences/essence.scn"),
-			load("res://resources/scenes/essences/fire_essence.scn"),
-			load("res://resources/scenes/essences/water_essence.scn"),
-			load("res://resources/scenes/essences/earth_essence.scn"),
-			load("res://resources/scenes/essences/air_essence.scn")
+			load("res://resources/scenes/essences/essence.tscn"),
+			load("res://resources/scenes/essences/fire_essence.tscn"),
+			load("res://resources/scenes/essences/water_essence.tscn"),
+			load("res://resources/scenes/essences/earth_essence.tscn"),
+			load("res://resources/scenes/essences/air_essence.tscn")
 		]
 	},
 	"bullets":{
 		"scenes":[
-			load("res://resources/scenes/bullets/bullet.scn")
+			load("res://resources/scenes/bullets/bullet.tscn")
 		]
 	},
 	"monsters":{
@@ -82,11 +82,11 @@ var objects_data= {
 			"speed":4
 		},
 		"scenes":[
-			load("res://resources/scenes/monsters/monster.scn"),
-			load("res://resources/scenes/monsters/normal_monster.scn"),
-			load("res://resources/scenes/monsters/tank_monster.scn"),
-			load("res://resources/scenes/monsters/swarm_monster.scn"),
-			load("res://resources/scenes/monsters/speed_monster.scn")
+			load("res://resources/scenes/monsters/monster.tscn"),
+			load("res://resources/scenes/monsters/normal_monster.tscn"),
+			load("res://resources/scenes/monsters/tank_monster.tscn"),
+			load("res://resources/scenes/monsters/swarm_monster.tscn"),
+			load("res://resources/scenes/monsters/speed_monster.tscn")
 		]
 	},
 	"buildings":{
@@ -97,7 +97,7 @@ var objects_data= {
 			"tower": 0,
 		},
 		"scenes":[
-			load("res://resources/scenes/buildings/tower.scn")
+			load("res://resources/scenes/buildings/tower.tscn")
 		]
 	}
 }

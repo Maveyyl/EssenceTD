@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://src/essence.gd" type="Script" id=1]
+[ext_resource path="res://resources/images/empty_essence.png" type="Texture" id=2]
+
+[node name="Node2D Essence" type="Node2D"]
+
+z/z = 200
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script" }
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="Area2D Range" type="Area2D" parent="."]
+
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[connection signal="body_enter_shape" from="Area2D Range" to="." method="_on_Area2D_body_enter_shape"]
+
+[connection signal="body_exit_shape" from="Area2D Range" to="." method="_on_Area2D_body_exit_shape"]
+
+

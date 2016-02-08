@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://resources/scenes/monsters/monster.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/animation_scripts/speed_monster_ann.gd" type="Script" id=2]
+[ext_resource path="res://resources/images/speed_monster.png" type="Texture" id=3]
+[ext_resource path="res://resources/animations/speed_monster_walk.anm" type="Animation" id=4]
+
+[node name="Node2D Monster" instance=ExtResource( 1 )]
+
+[node name="Node2D Sprites" parent="."]
+
+script/script = ExtResource( 2 )
+
+[node name="Sprite Head" type="Sprite" parent="Node2D Sprites"]
+
+transform/pos = Vector2( 14.7748, 0 )
+texture = ExtResource( 3 )
+region = true
+region_rect = Rect2( 0, 0, 50, 50 )
+__meta__ = { "_edit_ik_":true }
+
+[node name="Sprite Scale1" type="Sprite" parent="Node2D Sprites"]
+
+visibility/behind_parent = true
+transform/pos = Vector2( 14.7748, 3 )
+transform/rot = -17.7067
+transform/scale = Vector2( 1.2, 1 )
+texture = ExtResource( 3 )
+region = true
+region_rect = Rect2( 0, 50, 50, 50 )
+
+[node name="Sprite Scale2" type="Sprite" parent="Node2D Sprites"]
+
+visibility/behind_parent = true
+transform/pos = Vector2( 11.5573, 12 )
+transform/rot = -32.5769
+transform/scale = Vector2( 1.07599, 1.00532 )
+z/z = -1
+texture = ExtResource( 3 )
+region = true
+region_rect = Rect2( 0, 50, 50, 50 )
+
+[node name="Sprite Scale3" type="Sprite" parent="Node2D Sprites"]
+
+visibility/behind_parent = true
+transform/pos = Vector2( 5.23157, 22 )
+transform/rot = -37.0
+transform/scale = Vector2( 0.968392, 1.00532 )
+z/z = -2
+texture = ExtResource( 3 )
+region = true
+region_rect = Rect2( 0, 50, 50, 50 )
+
+[node name="Sprite Tail" type="Sprite" parent="Node2D Sprites"]
+
+visibility/behind_parent = true
+transform/pos = Vector2( -2.41645, 32 )
+transform/rot = -34.4224
+transform/scale = Vector2( 0.871553, 1.00532 )
+z/z = -3
+texture = ExtResource( 3 )
+region = true
+region_rect = Rect2( 0, 100, 50, 50 )
+
+[node name="AnimationPlayer Walk" type="AnimationPlayer" parent="Node2D Sprites"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/speed_monster_walk = ExtResource( 4 )
+playback/active = true
+playback/speed = 2.0
+blend_times = [  ]
+autoplay = ""
+
+
