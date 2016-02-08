@@ -38,7 +38,7 @@ Monsters are the enemies, they come in waves and have different characteristics 
 - normal
 - speed : increased movement speed (x1.5)
 - swarm : increased monster count per wave (x2), decreased resilience (x0.75)
-- tank : increased resilience (x2), lowered monster count and speed (x0.5)
+- tank : increased resilience and damage (x2), lowered monster count and speed (x0.5)
 
 #### Waves
 Waves are group of monsters. A map has a given count of wave. Each wave contains the same type of monster with the same characteristics. During a game, waves gets gradually tougher.<br>
@@ -142,6 +142,7 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 ## TODO
 ### Core Features
 - Energy system, with costs on essences and buildings, and rewards on killing monsters
+- Implement healing of monsters
 - Design traps and implement
 - More building designs
 - Implement levels on essence
@@ -173,7 +174,7 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 - Everything is ugly and to be redesigned
 
 ### Code refactor, organization and structure
-- Place the armor damage reduction calculation and monster type's characteristic tweak into global
+- Place game logic into the game_logic global object as much as possible for easy balance tweak
 - Utils function for map such as "find all monsters in a circle" to be put in a separate utilitary file
 - Try to get as much text resources as possible (scn->tscn)
 

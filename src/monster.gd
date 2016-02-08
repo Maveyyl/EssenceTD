@@ -59,7 +59,7 @@ func _draw():
 		draw_line ( Vector2(-20+health_bar_middle,-20), Vector2(20,-20), Color(1,0,0),3)
 
 func apply_damage( damage ):
-	damage = damage * 100/(100+armor)
+	damage = game_logic.monster.get_armor_damage_reduction(armor, damage)
 	health_point = health_point - damage
 
 	update() # draw health bar
