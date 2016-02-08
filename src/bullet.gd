@@ -54,7 +54,7 @@ func trigger(target):
 	if( bullet_types.find( global.objects_data.essences.index_by_name["earth"]  ) != -1):
 
 		# get monsters at bounce range
-		var monsters = map.get_monsters_in_circle( get_pos(), global.get_bounce_range(special_power), target)
+		var monsters = map.get_monsters_in_circle( get_pos(), game_logic.special_effects.get_bounce_range(special_power), target)
 		var bounce_monster = null
 		# get the closest alive non targeted monster
 		for y in range (0, monsters.size()):
@@ -62,7 +62,7 @@ func trigger(target):
 				bounce_monster = monsters[y]
 				break
 		# create a new bullet aimed at him
-		if( bounce_monster && bounce < global.get_bounce_count(special_power)):
+		if( bounce_monster && bounce < game_logic.special_effects.get_bounce_count(special_power)):
 			var bullet_scene = global.objects_data.bullets.scenes[0].instance()
 			map.add_child(bullet_scene)
 			bullet_scene.custom_init(essence, bounce_monster, damage, special_power, bullet_types)
@@ -70,11 +70,11 @@ func trigger(target):
 			bullet_scene.bounce = self.bounce + 1
 
 	if( bullet_types.find( global.objects_data.essences.index_by_name["fire"]  ) != -1):
-		on_hit_monsters = map.get_monsters_in_circle( get_pos(), global.get_splash_range(special_power), target)
+		on_hit_monsters = map.get_monsters_in_circle( get_pos(), game_logic.special_effects.get_splash_range(special_power), target)
 		
 
 	if( bullet_types.find( global.objects_data.essences.index_by_name["water"]  ) != -1):
-		var armor_flat_reduction = global.get_armor_flat_reduction(special_power)
+		var armor_flat_reduction = game_logic.special_effects.get_armor_flat_reduction(special_power)
 
 		target.armor_flat_reduce(armor_flat_reduction)
 		if( on_hit_monsters != null ):

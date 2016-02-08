@@ -157,7 +157,7 @@ func get_monsters_in_circle(center, radius, exclude):
 			if( center.distance_to( monster.get_pos() ) <= radius ):
 				distances[monster] = distance
 				for z in range(0, monsters.size()+1):
-					if( distances[monsters[z]] > distance || z == monsters.size()):
+					if( z == monsters.size() || distances[monsters[z]] > distance ):
 						monsters.insert(z,monster)
 						break
 				if( monsters.size() == 0 ):

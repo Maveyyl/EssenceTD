@@ -11,24 +11,6 @@ var scripts= {
 	"tile" : load("res://src/tile.gd"),
 	"wave" : load("res://src/wave.gd")	
 }
-var game_logic = {
-	# special effects balancing
-	"splash_range": 5,
-	"bounce": 0.1,
-	"bounce_range": 10,
-	"water_reloading": 0.01,
-	"armor_flat_reduction": 0.01
-}
-func get_splash_range(special_power):
-	return game_logic.splash_range * special_power
-func get_bounce_range(special_power):
-	return game_logic.bounce_range * special_power
-func get_bounce_count(special_power):
-	return ceil(game_logic.bounce * special_power)
-func get_water_reloading_time( special_power ):
-	return 1/(1+game_logic.water_reloading * special_power)
-func get_armor_flat_reduction( special_power ):
-	return 0.01*special_power
 	
 var objects_data= {
 	"maps":{
@@ -119,10 +101,3 @@ var objects_data= {
 		]
 	}
 }
-
-func _init():
-	pass
-	
-func _ready():
-	
-	pass

@@ -175,6 +175,7 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 ### Code refactor, organization and structure
 - Place the armor damage reduction calculation and monster type's characteristic tweak into global
 - Utils function for map such as "find all monsters in a circle" to be put in a separate utilitary file
+- Try to get as much text resources as possible (scn->tscn)
 
 ### Improvements
 - Balancing!!!
