@@ -22,46 +22,79 @@ class SpecialEffects:
 		return 0.01*special_power
 
 
+
+var wave = WaveLogic.new()
+class WaveLogic:
+	var monster_count = 10
+	var spawn_speed = 10
+	
+	func get_monster_count( monster_type, wave_nb, difficulty ):
+		var mc = monster_count * difficulty
+		
+		if( monster_type == global.objects_data.monsters.index_by_name.tank ):
+			mc = monster_count * 0.5
+		elif( monster_type == global.objects_data.monsters.index_by_name.swarm ):
+			mc = monster_count * 2
+			
+		return round( mc )
+		
+	func get_spawn_speed( monster_count ):
+		return spawn_speed / monster_count
+		
+
 var monster = MonsterLogic.new()
 class MonsterLogic:
 	var movement_speed = 30
+	var base_damage = 1
+	var base_health = 20
+	var base_healing = 1
+	var base_armor = 5
+	# multipliers
+	var tank_speed = 0.5
+	var tank_damage = 2
+	var tank_armor = 2
+	var tank_health = 2
+	var speed_speed = 1.5
+	var swarm_health = 0.75
+	var swarm_armor = 0.75
+
 	
 	func get_movement_speed(monster_type, wave_nb, difficulty):
 		var ms = movement_speed
 		if( monster_type == global.objects_data.monsters.index_by_name.tank ):
-			ms = round(ms*0.5)
+			ms = ms*tank_speed
 		elif( monster_type == global.objects_data.monsters.index_by_name.speed ):
-			ms = round(ms*1.5)
-		return ms
+			ms = ms*speed_speed
+		return round(ms)
 			
 	func get_armor_damage_reduction(armor, damage):
 		return round( damage * 100/(100+armor) )
 		
 	func get_damage( monster_type, wave_nb, difficulty ):
-		var damage = round( 1 * difficulty * wave_nb )
+		var damage =  base_damage * difficulty * wave_nb 
 		if( monster_type == global.objects_data.monsters.index_by_name.tank ):
-			damage *= 2
-		return damage
+			damage *= tank_damage
+		return round(damage)
 		
 	func get_health_max( monster_type, wave_nb, difficulty):
-		var hp = round( 20 * difficulty * wave_nb )
+		var hp =  base_health * difficulty * wave_nb 
 		
 		if( monster_type == global.objects_data.monsters.index_by_name.tank ):
-			hp = round(hp * 2)
+			hp = hp * tank_health
 		elif( monster_type == global.objects_data.monsters.index_by_name.swarm ):
-			hp = round(hp * 0.75)
+			hp = hp * swarm_health
 			
-		return hp
+		return round(hp)
 		
 	func get_healing_speed( monster_type, wave_nb, difficulty):
-		return round( 1 * difficulty * wave_nb )
+		return round( base_healing * difficulty * wave_nb )
 		
 	func get_armor_max( monster_type, wave_nb, difficulty):
-		var armor_max = round( 5 * difficulty * wave_nb )
+		var armor_max =  base_armor * difficulty * wave_nb 
 		
 		if( monster_type == global.objects_data.monsters.index_by_name.tank ):
-			armor_max = round(armor_max * 2)
+			armor_max = armor_max * tank_armor
 		elif( monster_type == global.objects_data.monsters.index_by_name.swarm ):
-			armor_max = round(armor_max * 0.75)
+			armor_max = armor_max * swarm_armor
 			
-		return armor_max
+		return round( armor_max )
