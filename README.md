@@ -138,6 +138,7 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 ## TODO
 ### Core Features
 - Energy system, with costs on essences and buildings, and rewards on killing monsters
+- Check Tile type before allowing building, make sure building is built before billing
 - Design traps and implement
 - More building designs
 - Implement levels on essence
