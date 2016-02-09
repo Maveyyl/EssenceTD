@@ -78,14 +78,12 @@ There is a lot of different combinations.<br>
 - air : 		flat armor reduction special effect
 - water : 		beam special effect
 - fire : 		splash damage special effect
-
 - ice :			(water + air)				stun special effect
 - magma	:		(earth + fire)				flat damage over time special effect
 - lightning	:	(fire + air)				multi hit special effect
 - vapor	:		(fire + water)				energy gathering special effect
 - sand :		(earth + air)				vulnerability
 - mud :			(earth + water)				slow
-
 - darkness :	(water + fire + earth)		scaling damage over time special effect
 - light	:		(air + fire + earth)		scaling armor reduction special effect
 - life :		(water + air + earth)		growing stats on focus special effect
@@ -96,14 +94,12 @@ There is a lot of different combinations.<br>
 - bouncing :					hits bounce on ceil(0.1*special_power) nearby units	
 - flat armor reduction :		reduce armor for 0.01*special_power per hit
 - Beam :						reload_time decreased (1+0.01*special_power) times
-
 - multi hit : 					frac(special_power)/trunc(0.01*special_power+1) + 1-(1/ trunc(0.01*special_power+1) ) chance of dealing trunc(0.01*special_power+1) the essence's damage
 - flat DOT :					inflicts special_power*damage in 3 second
 - stun :						frac(0.01*special_power)/trunc(0.01*special_power+1) + 1-(1/ trunc(0.01*special_power+1) ) chance of stun for trunc(0.01*special_power+1) seconds
 - energy gathering :			steals special_power energy per hit
 - vulnerability :				Each hit sets a stack of vulnerability, every hit of other towers will break one stack and deal 0.01*special_power more damage
 - slow :						max slow 80%, slowed for (1 - ( 100/(100+special_power) )*0.8, add on hit, duration is 3 second
-
 - growing stats on focus :		increases damage for 1+(0.01*special_power) per hit on the same target
 - growing stats on kill :		increases damage definitively for 1+(0.001*special_power) per kill
 - scaling DOT :					inflicts 0.001*special_power % of the targets life in damage
@@ -142,7 +138,6 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 ## TODO
 ### Core Features
 - Energy system, with costs on essences and buildings, and rewards on killing monsters
-- Implement healing of monsters
 - Design traps and implement
 - More building designs
 - Implement levels on essence

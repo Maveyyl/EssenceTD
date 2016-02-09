@@ -11,6 +11,8 @@ var armor
 
 var dead
 
+var heal_counter
+
 func _init():
 	dead = false
 
@@ -26,6 +28,7 @@ func custom_init( monster_data, wave, entry_index ):
 	self.armor = monster_data.armor_max
 	path = map.map_data.paths[entry_index]
 	path_step = 1
+	heal_counter = 0
 	
 	
 func _fixed_process(delta):
@@ -38,6 +41,12 @@ func _fixed_process(delta):
 		orient(goal_pos, delta)
 		
 		move(goal_pos, delta)
+	
+	if( health_point < monster_data.health_point_max ):
+		heal_counter +=delta
+		if( heal_counter >= monster_data.healing_speed ):
+			heal(monster_data.healing_speed )
+			heal_counter = 0
 	
 	
 func orient(goal_pos, delta):
@@ -57,7 +66,15 @@ func _draw():
 
 		draw_line ( Vector2(-20,-20), Vector2(-20+health_bar_middle,-20), Color(0,1,0),3)
 		draw_line ( Vector2(-20+health_bar_middle,-20), Vector2(20,-20), Color(1,0,0),3)
-
+		
+		
+		
+func heal(amount):
+	health_point += amount
+	if( health_point > monster_data.health_point_max ):
+		health_point = monster_data.health_point_max
+	update() # draw health bar
+		
 func apply_damage( damage ):
 	damage = game_logic.monster.get_armor_damage_reduction(armor, damage)
 	health_point = health_point - damage
