@@ -81,7 +81,7 @@ func apply_damage( damage ):
 
 	update() # draw health bar
 	if( health_point <= 0 ):
-		wave.monster_died()
+		wave.monster_died(self)
 		dead = true
 		get_node("KinematicBody2D").clear_shapes()
 		get_parent().remove_child(self)

@@ -50,11 +50,11 @@ func create_monster():
 	monsters.append(monster)
 	monsters_spawned_count = monsters_spawned_count + 1
 	
-func monster_died( ):
+func monster_died( monster ):
 	monsters_dead_count = monsters_dead_count + 1
 	if( wave_data.monster_count == monsters_dead_count ):
 		annihilated = true
-	map.monster_died()
+	map.monster_died( monster )
 	
 func start():
 	started = true

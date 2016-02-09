@@ -155,6 +155,34 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Label Energy" type="Label" parent="Node2D WaveInfo"]
+
+margin/top = 51.0
+margin/right = 150.0
+margin/bottom = 74.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+text = "Energy"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label EnergyCount" type="Label" parent="Node2D WaveInfo/Label Energy"]
+
+margin/top = 26.0
+margin/right = 150.0
+margin/bottom = 49.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="Node2D BuildingStore" type="Node2D" parent="."]
 
 transform/pos = Vector2( 1050, 150 )

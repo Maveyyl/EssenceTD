@@ -1,7 +1,8 @@
 
 extends Node
 
-# special effects
+
+
 var special_effects = SpecialEffects.new()
 class SpecialEffects:
 	var splash_range = 5
@@ -44,12 +45,15 @@ class WaveLogic:
 
 var monster = MonsterLogic.new()
 class MonsterLogic:
+	# base stats
 	var movement_speed = 30
 	var base_damage = 1
 	var base_health = 20
 	var base_healing = 1
 	var base_armor = 5
-	# multipliers
+	var energy_reward = 5
+	# multipliers per type
+	var tank_reward = 3
 	var tank_speed = 0.5
 	var tank_damage = 2
 	var tank_armor = 2
@@ -57,6 +61,7 @@ class MonsterLogic:
 	var speed_speed = 1.5
 	var swarm_health = 0.75
 	var swarm_armor = 0.75
+	var swarm_reward = 0.75
 
 	
 	func get_movement_speed(monster_type, wave_nb, difficulty):
@@ -98,3 +103,22 @@ class MonsterLogic:
 			armor_max = armor_max * swarm_armor
 			
 		return round( armor_max )
+		
+	func get_energy_reward( monster_type, wave_nb, difficulty):
+		var er = energy_reward * difficulty * wave_nb
+		
+		if( monster_type == global.objects_data.monsters.index_by_name.tank ):
+			er = er * tank_reward
+		elif( monster_type == global.objects_data.monsters.index_by_name.swarm ):
+			er = er * swarm_reward
+		
+		return round(er)
+		
+		
+		
+		
+var costs = Costs.new()
+class Costs:
+	var tower = 100
+	var essence = 100
+	

@@ -25,7 +25,8 @@ func drag( object ):
 		dragged_object.set_dragged()
 		dragging = true
 	
-		object.get_parent().remove_child( object )
+		if( object.get_parent() ):
+			object.get_parent().remove_child( object )
 		add_child(object)
 	
 	return previous_object

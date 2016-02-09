@@ -17,6 +17,8 @@ var tile_select
 
 var selected_tile
 
+var energy
+
 func _init():
 	waves = []
 	wave_started = 0
@@ -53,6 +55,7 @@ func custom_init(map_id):
 	get_node("Area2D").set_pos( map_pixel_size/2)
 	get_node("Area2D").get_shape(0).set_extents(map_pixel_size/2)
 	
+	energy = map_data.initial_energy
 
 func _fixed_process(delta):
 	if( input_manager.build_tower ):
@@ -79,8 +82,9 @@ func monster_created( ):
 	map_ui.update()
 
 	
-func monster_died( ):
+func monster_died( monster ):
 	monster_count = monster_count - 1
+	energy += monster.monster_data.energy_reward
 	map_ui.update()
 
 
@@ -137,10 +141,22 @@ func _on_StaticBody2D_mouse_exit():
 
 
 func build_tower( ):
-	if( selected_tile && !selected_tile.building ):
+	if( selected_tile && !selected_tile.building && energy >= game_logic.costs.tower ):
 		var tower = building_factory.create_tower(map, selected_tile, tile_coord_to_pos( selected_tile.coord))
 		selected_tile.building = tower
 		map.add_child(tower)
+		energy -= game_logic.costs.tower
+		map_ui.update()
+		
+func create_essence( essence_types ):
+	if( energy >= game_logic.costs.essence ):
+		var essence = essence_factory.create_essence( essence_types )
+		energy -= game_logic.costs.essence
+		map_ui.update()
+		
+		return essence
+	return null
+	
 		
 
 func get_monsters_in_circle(center, radius, exclude):

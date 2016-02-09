@@ -7,6 +7,7 @@ var entries = []
 var paths = []
 var bases = []
 var waves_data = []
+var initial_energy
 
 
 func _init():

@@ -11,8 +11,9 @@ func _fixed_process(delta):
 
 func _draw():
 	var wave_info_text = "Wave " + str(map.wave_started) + "/" + str(map.waves.size()) + "\n Monster count: " + str(map.monster_count)
-
 	get_node("Node2D WaveInfo/Label Wave").set_text(wave_info_text)
+	
+	get_node("Node2D WaveInfo/Label Energy/Label EnergyCount").set_text( str(map.energy))
 	
 
 
@@ -39,6 +40,3 @@ func _on_Button_Speed8_pressed():
 
 func _on_Button_Speed16_pressed():
 	OS.set_time_scale(16)
-
-func _on_Area2D_input_event( viewport, event, shape_idx ):
-	pass # replace with function body

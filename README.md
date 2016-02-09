@@ -32,7 +32,7 @@ Monsters are the enemies, they come in waves and have different characteristics 
 - health_point_max : maximum amount of health point, when health point reach 0, the monster dies
 - healing_speed : amount of health recovered per second
 - armor_max : maximum amount of armor point, armor reduces income damage by 100 / (100+armor)
-- reward : the rewarded Energy when killed
+- energy_reward : the rewarded Energy when killed
 
 ##### Monster types
 - normal
@@ -137,7 +137,8 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 
 ## TODO
 ### Core Features
-- Energy system, with costs on essences and buildings, and rewards on killing monsters
+- Increasing energy cost for duplicating buildings
+- Ability to destroy a building and refund part of its costs
 - Check Tile type before allowing building, make sure building is built before billing
 - Design traps and implement
 - More building designs
@@ -159,7 +160,6 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 - Limit to amount of drawn monsters and projectiles
 
 ### Interfaces, tools and views
-- Energy bar
 - Info pop-up with characteristics and costs when hovering a button or selecting a map entity
 - Wave progression bar or something similar (design to do)
 - Start menu with map selection
@@ -173,6 +173,7 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 - Place game logic into the game_logic global object as much as possible for easy balance tweak
 - Try to get as much text resources as possible (scn->tscn)
 - Utils function for map such as "find all monsters in a circle" to be put in a separate utilitary file
+- Secondary class for handling energy and buying for map
 
 ### Improvements
 - Balancing!!!
@@ -186,3 +187,6 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 - Combining essence effects could be done thanks to an empty essence that will have sockets in it (upgrade to have more sockets)
 - Energy pump buildings: putting an essence on a energy pump building can pump energy from the environment. For example a water tower on water tile.
 - Map maker
+- Player object, with saves, player crud ui, ... Experience system with extra skills and traits?
+- Maximum energy? maybe have to build stockage?
+- Ability to make a wave stronger, for better reward

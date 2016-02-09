@@ -19,5 +19,6 @@ func generate_monster_data(monster_type, wave_nb, difficulty):
 	monster_data.health_point_max = game_logic.monster.get_health_max(monster_type, wave_nb, difficulty)
 	monster_data.healing_speed = game_logic.monster.get_healing_speed(monster_type, wave_nb, difficulty)
 	monster_data.armor_max = game_logic.monster.get_armor_max( monster_type,wave_nb, difficulty )
+	monster_data.energy_reward = game_logic.monster.get_energy_reward( monster_type, wave_nb, difficulty )
 	
 	return monster_data
