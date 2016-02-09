@@ -158,7 +158,6 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 - Limit to amount of drawn monsters and projectiles
 
 ### Interfaces, tools and views
-- Building build buttons
 - Energy bar
 - Info pop-up with characteristics and costs when hovering a button or selecting a map entity
 - Wave progression bar or something similar (design to do)
@@ -169,6 +168,7 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 - Everything is ugly and to be redesigned
 
 ### Code refactor, organization and structure
+- refactor stores to have different name/to inherit from a generic store script
 - Place game logic into the game_logic global object as much as possible for easy balance tweak
 - Try to get as much text resources as possible (scn->tscn)
 - Utils function for map such as "find all monsters in a circle" to be put in a separate utilitary file

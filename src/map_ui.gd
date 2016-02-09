@@ -39,3 +39,6 @@ func _on_Button_Speed8_pressed():
 
 func _on_Button_Speed16_pressed():
 	OS.set_time_scale(16)
+
+func _on_Area2D_input_event( viewport, event, shape_idx ):
+	pass # replace with function body

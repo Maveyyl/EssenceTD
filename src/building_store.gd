@@ -9,25 +9,21 @@ func _init():
 	store_size = Vector2(3,2)
 
 
-
 func get_store_slot( pos ):
 	var x = int(pos.x)/int(store_tile_size.x)
 	var y = int(pos.y)/int(store_tile_size.y)
 	return int(x + y*store_size.x)
 
 
+
 func _on_Area2D_input_event( viewport, event, shape_idx ):
-	if( event.type == 3 && event.button_mask == 1 && !mouse_manager.dragging):
+	if( event.type == 3 && event.button_mask == 1):
 		var store_slot = get_store_slot( event.pos-get_pos())
-		if( store_slot > global.objects_data.essences.scenes.size()-1 ):
+		if( store_slot > global.objects_data.buildings.scenes.size() ):
 			return
 		
-		var essence_type = store_slot + 1
-		if( store_slot == 4 ):
-			essence_type = 0
+		var building_type = store_slot
 		
-		var essence = essence_factory.create_essence( [essence_type] )
-
-		map.add_child(essence)
-		mouse_manager.drag(essence)
+		if( building_type == 0 ):
+			map.build_tower()
 		

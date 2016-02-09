@@ -111,10 +111,10 @@ func _on_StaticBody2D_input_event( viewport, event, shape_idx ):
 	# left click
 	if( event.type == 3 && event.button_mask == 1):
 		var clicked_tile = get_tile(tile_coord)
-
-		var b_essence = clicked_tile.building.unset_essence()
-		var a_essence = mouse_manager.drag(b_essence)
-		clicked_tile.building.set_essence(a_essence)
+		if( clicked_tile.building ):
+			var b_essence = clicked_tile.building.unset_essence()
+			var a_essence = mouse_manager.drag(b_essence)
+			clicked_tile.building.set_essence(a_essence)
 			
 		
 	# right click
