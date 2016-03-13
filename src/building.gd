@@ -1,7 +1,7 @@
 
 extends Node2D
 
-var building_type
+var type
 var essence
 var tile
 
@@ -10,7 +10,7 @@ func _ready():
 	pass
 
 func custom_init( building_type, tile, pos):
-	self.building_type = building_type
+	self.type = building_type
 	self.tile = tile
 	essence = null
 	set_pos(pos)

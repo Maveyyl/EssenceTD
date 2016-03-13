@@ -123,6 +123,6 @@ class Costs:
 	var tower_multiplier = 0.3
 	var essence = 100
 	
-	func get_tower_cost( tower_nb):
-		return round( (tower_nb*tower_multiplier+1)*tower )
+	func get_tower_cost( tower_count ):
+		return round( (tower_count*tower_multiplier+1)*tower )
 	

@@ -66,6 +66,9 @@ func _fixed_process(delta):
 		build_tower()
 	if( input_manager.next_wave ):
 		start_next_wave()
+	if( input_manager.destroy_building):
+		destroy_building()
+						
 	for i in range(0, wave_started):
 		waves[i].update(delta)
 
@@ -158,6 +161,16 @@ func build_tower( ):
 		map_ui.update()
 		
 		building_count.tower+=1
+		
+func destroy_building():
+	print("hey", selected_tile, selected_tile.building)
+	if( selected_tile && selected_tile.building && !selected_tile.building.essence ):
+		var building = selected_tile.building
+		selected_tile.building = null
+		map.remove_child(building)
+		
+		building_count[global.objects_data.buildings.name_by_index[building.type]]-=1
+		
 		
 func create_essence( essence_types ):
 	if( energy >= game_logic.costs.essence ):
