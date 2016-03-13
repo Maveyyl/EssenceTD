@@ -137,7 +137,6 @@ Results will have 41 (50*5/(5+1)) special power in fire and 1.6 (10*1/(5+1)) spe
 
 ## TODO
 ### Core Features
-- Increasing energy cost for duplicating buildings
 - Ability to destroy a building and refund part of its costs
 - Check Tile type before allowing building, make sure building is built before billing
 - Design traps and implement

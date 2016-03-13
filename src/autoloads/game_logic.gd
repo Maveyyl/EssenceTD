@@ -120,5 +120,9 @@ class MonsterLogic:
 var costs = Costs.new()
 class Costs:
 	var tower = 100
+	var tower_multiplier = 0.3
 	var essence = 100
+	
+	func get_tower_cost( tower_nb):
+		return round( (tower_nb*tower_multiplier+1)*tower )
 	

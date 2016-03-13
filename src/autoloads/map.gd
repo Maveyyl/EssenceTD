@@ -17,6 +17,8 @@ var tile_select
 
 var selected_tile
 
+var building_count
+
 var energy
 
 func _init():
@@ -26,6 +28,8 @@ func _init():
 	wave_started = 0
 	wave_completed = 0
 	monster_count = 0
+	
+	building_count = {}
 
 func _ready():
 	set_fixed_process(true)
@@ -141,12 +145,19 @@ func _on_StaticBody2D_mouse_exit():
 
 
 func build_tower( ):
-	if( selected_tile && !selected_tile.building && energy >= game_logic.costs.tower ):
+	if( !building_count.has("tower")  ):
+		building_count.tower = 0
+		
+	var tower_cost = game_logic.costs.get_tower_cost( building_count.tower )
+			
+	if( selected_tile && !selected_tile.building && energy >= tower_cost ):
 		var tower = building_factory.create_tower(map, selected_tile, tile_coord_to_pos( selected_tile.coord))
 		selected_tile.building = tower
 		map.add_child(tower)
-		energy -= game_logic.costs.tower
+		energy -= tower_cost
 		map_ui.update()
+		
+		building_count.tower+=1
 		
 func create_essence( essence_types ):
 	if( energy >= game_logic.costs.essence ):
